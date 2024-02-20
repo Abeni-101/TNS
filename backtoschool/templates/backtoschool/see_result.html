@@ -1,0 +1,31 @@
+{%extends 'backtoschool/sidebar.html'%}
+{%block content%}
+<div class="card" style="margin-top: 100px;margin-left: 300px">
+
+	<div class="card-body">
+		
+		<h5 class="card-title">Assignment Result of <span style="color: white;background-color: black">{{see.first_name}} {{see.last_name}}<span></span></h5>
+		<p class="card-text">
+			<small class="text-muted">{{see.subject}} Assignment </small>
+			<br>
+            <br>
+            <small>Grade  {{see.grade}} </small><br><br>
+            
+            <small><strong>{{see.first_name}}'s Answer :</strong>{{see.student_answer|linebreaks}}</small>
+
+		
+        </p>
+
+	</div>
+
+</div>
+<div class="card" style=" width:15rem;margin-left: 80% ;margin-top:12px;background-color:brown;color: white">
+<div class="card-body">
+  <h5 class="card-title">Result</h5>
+  <hr>
+  <h3>{{see.result}}</h3>
+</div>
+</div>
+
+
+{%endblock%}

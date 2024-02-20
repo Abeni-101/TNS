@@ -1,0 +1,32 @@
+{%extends "backtoschool/sidebar.html"%}
+{%block content%}
+<div class="row" style="margin-top: 100px;margin-left: 270px">
+	<div class="col-md">
+		<div class="card card-body">
+			<h4 style="margin-left: 260px">Student's Assignments</h4>
+			<table class="table table-sm">
+				<tr>
+					<th>Subject name</th>
+					<th>For Grade</th>
+					<th>Branch</th>
+					<th>Performance</th>
+					{%if request.user.is_staff%}
+					<th>Action</th>
+					{%endif%}
+				<tr>
+				{%for view in views_all%}
+				<tr>
+				   	 <td>{{view.subject_name}}</td>
+				   	 <td><strong>{{view.for_grade}}</strong></td>
+				   	 <td>{{view.catagorie}}</td>
+				   	 <td><a href="{%url 'submit_ass' view.id%}"><button type="button" class="btn btn-warning" style="text-decoration: none;color: white">Work</button></a></td>
+				   	 {%if request.user.is_staff%}
+				   	 <td><button class="btn btn-danger" ><a href="{%url 'delete_ass' view.id%}" style="text-decoration: none;color: white">Delete</a></button></td>
+				   	 {%endif%}
+				</tr>
+				{%endfor%}
+		    </table>
+	    </div>
+	</div>
+</div>
+{%endblock%}

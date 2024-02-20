@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   	   <meta charset="utf-8">
+	   <title>the log in system </title>
+	   <style >
+	   	   body{
+	   	   	margin: 0;
+	   	   	padding: 0;
+	   	   	background-color: #212f3d;
+	   	   	background-size: cover;
+	   	   	background-position: center;
+	   	   	font-family: sans-serif;
+	   	   }
+	   	   .loginbox{
+	   	   	width:320px;
+	   	   	height:420px;
+	   	   	background:#5d6d7e;
+	   	   	color: #fff;
+	   	   	top:50%;
+	   	   	left:50%;
+	   	   	position:absolute;
+	   	   	transform: translate(-50%,-50%);
+	   	    box-sizing: border-box;
+	   	    padding: 70px 30px;
+	   	    border-radius: 5%
+	   	   }
+	   	   .avatar{width: 80px;
+	   	   	        height: 80px;
+	   	   	        border-radius: 50%;
+	   	   	        position: absolute;
+	   	   	        top: -40px;
+	   	   	        margin-left: 30%}
+	   	   h1{margin: 0;padding: 0;text-align: center;font-size: 28px;}
+	   	   .loginbox p{
+	   	   	margin: 0;
+	   	   	padding: 0;
+	   	   }
+	   	   .loginbox input{
+	   	   	width: 100%;
+	   	   	margin-bottom: 15px; 
+	   	   }
+	   	  .loginbox input[type='text'],input[type='password']{
+	   	  	border: none;
+	   	  	border-bottom: 1px solid #fff;
+	   	  	background: transparent;
+	   	  	outline: none;
+	   	  	height: 40px;
+	   	  	color: #fff;
+	   	  	font-size: 15px;
+	   	  }
+	   	  .loginbox input[type='submit']{
+	   	  	border: none;
+	   	  	outline: none;
+	   	  	height: 40px;
+	   	  	background:#212f3d;
+	   	  	color: white;
+	   	  	font-size: 18px;
+	   	  	border-radius: 30px;
+	   	  }
+	   	  .loginbox input[type='submit']:hover{
+	   	  	cursor: pointer;
+	   	  	background:lightblue;
+	   	  	color: darkgray;
+	   	  }
+	   	  .loginbox a{
+	   	  	text-decoration: none;
+	   	  	font-size: 12px;
+	   	  	line-height: 20px;
+	   	  	color: #212f3d;
+	   	  }
+	   	  .loginbox a:hover{
+	   	  	color: lightgrey;
+	   	  	font-size: 20px;
+	   	  }
+	   	  #messages{color: red}
+
+	   	   
+	   </style>
+   </head>
+   <body>
+   	  <div class="loginbox">
+   	  	<h1>Login Here</h1>
+
+   	  	<form method="post" action="{%url 'loginpage'%}">
+   	  		{%csrf_token%}
+   	  		<p>User Name</p>
+   	  		<input type="text" name="username" placeholder="Enter Username">
+   	  		<p>Password</p>
+   	  		<input type="Password" name="password" placeholder="Enter Password">
+   	  		{%for message in messages %}
+   	  		   <p id="messages">{{message}}</p>
+   	  		{%endfor%}
+   	  		<input type="submit" name="submit" value="login">
+
+   	  		<a href="kdjf">Forgot My Password</a><br>
+   	  		<a href="{%url 'registerpage'%}">Creat New Account</a>
+   	  	</form>
+   	  </div>
+
+   </body>
+</html>

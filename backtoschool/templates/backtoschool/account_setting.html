@@ -1,0 +1,46 @@
+{%  extends 'backtoschool/sidebar.html' %}
+{% load static %}
+{% block content %}
+   <style>
+	.profile-pic{
+		width: 90%;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+    </style>
+
+<div style="margin-top: 7%;margin-left: 22%">
+ 
+   <div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-info" href="{% url 'home' %}"> &#8592; Back to Home</a>
+			<hr>
+			<h3 style="text-align: center">User Settings</h3>
+			<hr>
+			<img class="profile-pic" src="{{request.user.student_info.profile_pic.url}}" >
+		
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="card card-body">
+		    <h5 style="color: #19B3D3;margin-left: 20%">Student Information</h5>
+			<hr>
+			
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form.as_p}}
+		
+			<input class="btn btn-info" type="submit" name="Update Information" value="save">
+			</form>
+		</div>
+	</div>
+   </div>
+
+
+</div>
+
+
+
+{% endblock %}

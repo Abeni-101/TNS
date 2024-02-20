@@ -1,0 +1,51 @@
+{%  extends 'backtoschool/sidebar.html' %}
+{% load static %}
+{% block content %}
+<div class="content">
+<style>
+	.profile-pic{
+		width: 100%;
+		max-height:200px;
+		margin: 0 auto;
+		
+	}
+</style>
+
+<div style="margin-top: 8%;margin-left: 270px">
+ 
+   <div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+			<h3 style="text-align: center">Profile</h3>
+			<hr>
+			<img class="profile-pic" src="{{information.profile_pic.url}}" >
+		
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="card card-body">
+		    <h5 style="color: orange;margin-left: 20%">About Student</h5>
+			<hr>
+
+			<h6><strong>ID </strong>{{information.id}}</h6>
+			<hr>
+			<h6><strong>First-name </strong>{{information.first_name}}</h6>
+			<hr>
+			<h6><strong>Last-name </strong>{{information.last_name}}</h6>
+			<hr>
+			<h6><strong>Branch </strong>{{information.branch}}</h6>
+			<hr>
+			<h6><strong>Gender </strong>{{information.gender}}</h6>
+			<hr>
+			<h6><strong>Grade </strong>{{information.Grade}}</h6>
+			<hr>
+			<h6><strong>Section  </strong>{{information.section}}</h6>
+		</div>
+	</div>
+   </div>
+
+
+</div>
+
+</div>
+{%endblock%}

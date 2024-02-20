@@ -1,0 +1,28 @@
+{%extends "backtoschool/sidebar.html"%}
+{%block content%}
+<div class="row" style="margin-top: 100px;margin-left: 270px">
+	<div class="col-md">
+		<div class="card card-body">
+			<h4 style="margin-left: 260px">Submited Answers</h4>
+			<table class="table table-sm">
+				<tr>
+					<th>Student Name</th>
+					<th>Subject Name</th>
+					<th>Grade</th>
+                    <th style="color: red">Result</th>
+					<th>All</th>
+				<tr>
+				{%for ass in all_ass%}
+				<tr>
+					 <td>{{ass.first_name}} {{ass.last_name}}</td>
+				   	 <td>{{ass.subject}}</td>
+				   	 <td>{{ass.grade}}</td>
+				   	 <td style="color: green">{{ass.result}}</td>
+				   	 <td><a href="{%url 'show_result' ass.id%}"><button type="button" class="btn btn-info">Show</button></a></td>
+				</tr>
+				{%endfor%}
+		    </table>
+	    </div>
+	</div>
+</div>
+{%endblock%}

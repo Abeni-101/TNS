@@ -1,0 +1,42 @@
+{%extends "backtoschool/sidebar.html"%}
+{%block content%}
+<div class="row" style="margin-left: 70%;margin-top: 85px">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5><center>Submit date</center></h5>
+			<hr>
+			<p><center>{{view_all.dead_line}}</center></p>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-left: 20%;margin-top: 85px">
+	<div class="col-md">
+		<div class="card card-body">
+		   <h5>{{view_all.subject_name}} Assignment Questions</h5>
+		   <hr>
+           {{view_all.question|linebreaks}}
+            <small style="color: grey ;margin-left: 70%">By Tr {{view_all.teacher_name}} </small>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-left: 20%;margin-top: 85px">
+	<div class="col-md">
+		<div class="card card-body">
+		   <h5>Your Answer Here </h5><small style="color: red"><i class="fas fa-exclamation-triangle"></i>caution :if you submit your assignment twice you will be disqualified ! </small>
+		   <hr>
+		   <form method="post" action="">
+		   	   {%csrf_token%}
+		   	   <p>First-Name : {{form.first_name}} <span>Last_Name:{{form.last_name}}</span> <small>Subject:{{form.subject}}</small><small>Grade:{{form.grade}}</small></p>
+		   	   <hr>
+	           <span style="color: green">Answer</span> {{form.student_answer}}
+	           <br>
+	           <br>
+	           
+	           <button class="btn btn-outline-success btn-sm">Submit your Answer</button>
+	       </form>
+            
+		</div>
+	</div>
+</div>
+<hr>
+{%endblock%}

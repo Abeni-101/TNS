@@ -1,0 +1,21 @@
+{%extends 'backtoschool/sidebar.html'%}
+{%block content%}
+<div class="card" style="margin-top: 100px;margin-left: 300px">
+
+	<div class="card-body">
+		
+		<h5 class="card-title">{{detail.title}}</h5>
+		<p class="card-text">
+			<small class="text-muted">{{detail.published_date}}</small>
+			<br>
+			
+            {{detail.content}}
+
+		
+        </p>
+        
+	</div>
+
+</div>
+
+{%endblock%}

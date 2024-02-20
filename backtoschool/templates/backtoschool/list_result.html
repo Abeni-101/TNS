@@ -1,0 +1,27 @@
+{%extends "backtoschool/sidebar.html"%}
+{%block content%}
+<div class="row" style="margin-top: 100px;margin-left: 270px">
+	<div class="col-md">
+		<div class="card card-body">
+			<h4 style="margin-left: 360px">Result Page</h4>
+			<br>
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Grade</th>
+					<th>Subject</th>
+					<th>Result</th>
+				<tr>
+				{%for l in ls%}
+				<tr>
+				   	 <td>{{l.first_name}} {{l.last_name}}</td>
+				   	 <td>{{l.grade}}</td>
+				   	 <td>{{l.subject}}</td>
+				   	 <td><a href="{%url 'see' l.id%}"><button type="button" class="btn btn-info">See</button></a></td>
+				</tr>
+				{%endfor%}
+		    </table>
+	    </div>
+	</div>
+</div>
+{%endblock%}

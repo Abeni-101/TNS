@@ -1,0 +1,36 @@
+{%extends "backtoschool/sidebar.html"%}
+
+{%block content%}
+<div class="card" style="margin-left: 25%;margin-top: 100px">
+  <h5 class="card-header"><small>Student-Name :{{result.first_name}}</small>  <small>  {{result.last_name}}</small></h5>
+  <div class="card-body">
+    <h5 class="card-title">Assignment Answer</h5>
+    
+    <p class="card-text">{{result.student_answer|linebreaks}}</p>   
+  </div>
+
+</div>
+  <div class="card" style=" width:18rem;margin-left: 78% ;margin-top:100px">
+    <div class="card-body">
+      <h5 class="card-title">Assignment Result</h5>
+      <h1 class="card-text">{{result.result}}</h1>
+    
+    </div>
+  </div>
+  <div class="card" style=" width:40rem;margin-left: 25% ;margin-top:-170px">
+    <div class="card-body">
+      <h5 class="card-title">Give a Result</h5>
+      <form method="post">
+      	{%csrf_token%}
+      	{{form.as_p}}
+      	<br>
+      	<br>
+      	<button class="btn btn-primary">Give</button>
+
+      </form>
+      
+    </div>
+  </div>
+
+
+{%endblock%}

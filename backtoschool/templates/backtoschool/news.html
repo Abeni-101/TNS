@@ -1,0 +1,18 @@
+{%extends "backtoschool/sidebar.html"%}
+
+{%block content%}
+<div  class="card"style="margin-top: 70px; margin-left: 250px">
+	<div class="card-body" style="background-color: #384552;color: white">
+		<div style="margin-left: 90px">
+	       <h4 >Create <span style="color: red"> a News from here</span></h4>
+	   
+	       <form action="" method="post">
+		      {%csrf_token%}
+		      {{news.as_p}}
+		      <p><small style="color: grey">published date => month/day/year</small></p>
+	          <button class="btn btn-info">send</button>
+	      </form>
+	   </div>
+	</div>
+</div>
+{%endblock%}

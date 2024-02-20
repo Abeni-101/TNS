@@ -1,0 +1,37 @@
+{%extends "backtoschool/sidebar.html"%}
+
+{%block content%}
+
+<div class="card" style="margin-top: 80px;margin-left: 300px;">
+	<div style="background-color: red;color: white;">
+	   <h3 style="margin-left: 38%">All The  News</h3>
+	   
+    </div>
+
+	<div class="card-body" style="background-color:#384552;color: #ffff">
+	  {%for news  in all_news %}
+	  {%with news=news truncate=True detail=False%}	
+		<h5 class="card-title">{{news.title}}</h5>
+		<p class="card-text">
+			<small class="text-muted">published On {{news.published_date}}</small>
+
+			{%if truncate%}
+               {{news.content|linebreaks|truncatewords:15}}
+            {%endif%}
+            <br>
+            {%if not detail%}
+
+		      <a href="{%url 'detail_news' news.id%}">view</a>
+		    {%endif%}
+		   <hr>
+		
+        </p>
+      {%endwith%}
+	  {%endfor%}
+        
+	</div>
+
+</div>
+
+{%endblock%}
+
